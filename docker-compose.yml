@@ -1,0 +1,30 @@
+version: '3'
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"  
+    networks:
+      - app-network
+    depends_on:
+      - backend 
+    env_file:
+      - .env 
+
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080" 
+    networks:
+      - app-network
+    environment:
+      - NODE_ENV=production
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY} 
+    env_file:
+      - .env 
+    volumes:
+      - ./backend:/app 
+
+networks:
+  app-network:
+    driver: bridge
