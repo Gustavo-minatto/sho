@@ -11,7 +11,7 @@ class RideController {
         params: {
           origins: [origem],
           destinations: [destino],
-          key: 'AIzaSyBRBHP8-J3zo-5gvvykTisXi1Nrrd699WI',
+          key: '',
         },
       });
 
